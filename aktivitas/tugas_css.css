@@ -1,0 +1,69 @@
+ body {
+     margin: 2rem;
+     padding-left: 28rem;
+     padding-right: 28rem;
+ }
+
+ table,
+ p {
+     text-align: justify;
+
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ table,
+ th {
+     border: 1px solid black;
+     text-align: left;
+ }
+ th {color: red;}
+
+ p::first-line {
+     background-color: rgb(0, 255, 0);
+ }
+
+ .p1 {
+     border: 2px solid red;
+ }
+
+ .judul,
+ .sub-judul {
+     text-align: center;
+ }
+
+ .p2 span {
+    background-color: yellow;
+ }
+ .judul span {
+     background-color: aqua;
+     font-size: 24px;
+ }
+ .p4 .span1{
+    font-style: italic;
+    ;
+ }
+ .p4 .span2{
+    font-weight: bold;
+    color: blue;
+ }
+
+ .sub-judul span {
+     background-color: blue;
+     font-size: 20px;
+     text-align: center;
+ }
+
+ .link:hover {
+    color: red;
+ }
+ .pancasila span {
+    background-color: aqua;
+ }
+
+ol span {
+   background-color: yellow; 
+}
