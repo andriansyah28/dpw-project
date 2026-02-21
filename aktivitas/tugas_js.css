@@ -1,0 +1,33 @@
+body{
+    margin: 2rem;
+    padding-left: 28rem;
+    padding-right: 28rem;
+}
+.judul{ 
+    font-size: 18px;
+    color: #a903fc;
+}
+
+.p1::first-line{
+    background-color: #fc03e8;
+    font-weight: 600;
+}
+
+.p2::first-line{
+    background-color: #fc0303;
+    font-weight: 600;
+}
+
+.p3::first-line{
+    background-color: #35fc03;
+}
+
+.p4::first-line{
+    background-color: #0519f7;
+    color: white;
+    font-weight: 600;
+}
+
+.pancasila{
+    font-size: 18px;
+}
