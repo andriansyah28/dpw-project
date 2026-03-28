@@ -1,0 +1,890 @@
+/* Aturan Dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+
+/* SECTION 1 PENGANTAR */
+.wedding-welcome-section {
+  background-image: url("/frontend/assets/pengantar.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+}
+
+/* KOTAK KONTEN PUSAT */
+.welcome-box {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #ffffff;
+
+  /* Hanya memberikan border di bawah, kiri, dan kanan. Bagian atas diatur oleh title-wrapper */
+  border-bottom: 2px solid #5d4332;
+  border-left: 2px solid #5d4332;
+  border-right: 2px solid #5d4332;
+
+  /* Pastikan TIDAK ADA overflow: hidden di sini agar judul tidak terpotong */
+  padding: 80px 70px 60px 70px;
+  text-align: center;
+}
+
+/* PEMBUNGKUS JUDUL DAN GARIS ATAS */
+.title-wrapper {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+/* GARIS DI KIRI DAN KANAN TEKS */
+.line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #5d4332;
+}
+
+/* JUDUL 'WELCOME' */
+.welcome-title {
+  background-color: transparent;
+  padding: 0 25px;
+  color: #5d4332;
+  font-family: "Kaushan Script", cursive;
+  font-size: 4.5em;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* BAGIAN KONTEN TEKS */
+.welcome-content {
+  color: #5d4332;
+}
+
+.welcome-content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 1.2em;
+}
+
+.welcome-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* SECTION 2 STORY*/
+
+.couple-story-section {
+  background-image: url("/frontend/assets/pengantar.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.story-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 95vh;
+  background-color: #8b8070;
+  border-radius: 60px 60px 0 0;
+  padding: 50px 50px 0 50px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.story-content-box {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  border-radius: 45px 45px 0 0;
+  padding: 30px 30px 0 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* HEADER NAMA (Rata Kanan) */
+.names-header {
+  align-self: flex-end;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.couple-name {
+  font-family: "Kaushan Script", cursive;
+  color: #000000;
+  font-size: 4em;
+  margin: 0;
+}
+
+/* TEKS PARAGRAF (Rata Kiri) */
+.story-text {
+  margin-top: 10px;
+}
+
+.story-text p {
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+/* SECTION 3 UCAPAN*/
+.wedding-wishes-section {
+  background-color: #8b8070;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Header */
+.wishes-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.wishes-title {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 4.5em;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* 2. Area Foto (Container Utama) */
+.wishes-overlay-container {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 10px solid #ffffff;
+  border-bottom: 10px solid #ffffff;
+  background-image: url("/frontend/assets/ucapan.png");
+  background-size: cover;
+  background-position: 50% 45%;
+  overflow: hidden;
+}
+
+/* KUNCI: Efek Putih Overlay agar Teks Hitam Terbaca */
+.wishes-overlay-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.overlay-text {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 0 60px;
+  text-align: center;
+}
+
+.overlay-text p {
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* 3. Footer */
+.wishes-footer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.btn-confirm {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 60px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-confirm:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.deadline-info {
+  text-align: center;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.deadline-info p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 2px 0;
+}
+
+/* BAGIAN 4: INFORMASI PENGANTIN */
+/* BAGIAN 4: INFORMASI PENGANTIN - FIXED HEIGHT */
+.wedding-couple-info-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Kunci tinggi tepat satu layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Mencegah scrollbar muncul jika foto terlalu besar */
+}
+
+/* Background Blur */
+.wedding-couple-info-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/frontend/assets/pengantar.jpeg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.7);
+  z-index: 1;
+}
+
+.couple-info-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly; /* Jarak antar elemen lebih seimbang */
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Kolom Mempelai */
+.groom-info,
+.bride-info {
+  flex: 0 1 350px; /* Lebar fleksibel dengan batas dasar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 3em;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Bingkai Foto (Setinggi 500px) */
+.photo-frame {
+  width: 100%;
+  height: 500px; /* Tinggi foto dikunci 500px sesuai permintaan */
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar foto tidak gepeng meski tingginya 500px */
+}
+
+/* Detail Nama */
+.details {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.full-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.parent-names {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* Nama Tengah */
+.couple-names-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.center-names {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 2.2em;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.ampersand {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 3.5em;
+  margin: 5px 0;
+}
+
+/* BAGIAN 5: TIMER & LOKASI */
+.wedding-event-section {
+  background-image: url("/frontend/assets/pengantar.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.event-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Jarak antara timer dan kartu info */
+}
+
+/* Timer Countdown */
+.timer-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+}
+
+.timer-box {
+  background-color: #ffffff;
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timer-box .number {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.timer-box .label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* Kartu Informasi Acara */
+.event-info-card {
+  background-color: #ffffff;
+  border-radius: 50px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.event-image-side {
+  flex: 0 0 45%;
+  height: 400px;
+}
+
+.event-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px 0 0 50px;
+}
+
+.event-details-side {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-details-side h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.info-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-row {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.info-label {
+  width: 100px; /* Lebar label agar titik dua sejajar */
+  font-weight: 400;
+}
+
+.info-value {
+  flex: 1;
+  font-weight: 400;
+}
+
+/* BAGIAN 6: GALERI PERJALANAN KAMI */
+/* BAGIAN 6: GALERI PERJALANAN KAMI */
+.wedding-gallery-section {
+  background-color: #908471; /* Warna cokelat taupe solid sesuai mockup */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+}
+
+.gallery-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+/* Judul Galeri */
+.gallery-title {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 4.5em;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+
+/* Menggunakan CSS Grid untuk tata letak foto */
+.gallery-grid {
+  display: grid;
+  /* Membuat 5 kolom dengan lebar sama (1fr) */
+  grid-template-columns: repeat(5, 1fr);
+  /* Jarak antar foto sesuai mockup */
+  gap: 15px;
+}
+
+.gallery-item {
+  width: 100%;
+  /* Membuat elemen menjadi persegi agar foto proporsional */
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Foto memenuhi bingkai persegi tanpa gepeng */
+  transition: transform 0.3s ease;
+}
+
+/* Efek zoom saat foto di-hover */
+.gallery-item:hover .gallery-photo {
+  transform: scale(1.05);
+}
+
+/* BAGIAN 6: LOKASI PERNIKAHAN */
+.wedding-location-section {
+  background-color: #908471;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.location-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.location-title {
+  font-family: "Kaushan Script", cursive;
+  color: #ffffff;
+  font-size: 4.5em;
+  margin-bottom: 30px;
+}
+
+.map-frame {
+  width: 1000px;
+  max-width: 1200px;
+  background-color: #ffffff;
+  padding: 10px; /* Jarak bingkai putih */
+  border-radius: 40px;
+  overflow: hidden;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 30px; /* Sudut melengkung di dalam bingkai */
+  display: block;
+}
+
+.btn-maps {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 60px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-maps:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+}
+
+/* Responsif untuk Layar Kecil (Agar tidak terpotong) */
+@media (max-height: 700px) {
+  .photo-frame {
+    height: 350px;
+  }
+  .section-title {
+    font-size: 2.2em;
+  }
+}
+
+/* Responsif untuk layar HP */
+@media (max-width: 768px) {
+  .welcome-box {
+    padding: 60px 30px 40px 30px;
+  }
+  .welcome-title {
+    font-size: 3em;
+    padding: 0 15px;
+  }
+  .welcome-content p {
+    font-size: 1rem;
+  }
+
+  .couple-story-section {
+    padding: 60px 20px;
+  }
+  .story-container {
+    border-radius: 30px;
+    padding: 30px;
+  }
+  .story-content-box {
+    border-radius: 25px;
+    padding: 50px 30px;
+  }
+  .names-header {
+    margin-bottom: 40px;
+  }
+  .couple-name {
+    font-size: 3em;
+  }
+  .story-text p {
+    font-size: 1rem;
+  }
+  .wishes-title {
+    font-size: 2.8em;
+  }
+  .wishes-overlay-container {
+    height: 60vh;
+  }
+  .overlay-text p {
+    font-size: 0.9rem;
+  }
+  .btn-confirm {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+  .story-container {
+    height: 90vh;
+    padding: 25px 25px 0 25px;
+    border-radius: 40px 40px 0 0;
+  }
+  .story-content-box {
+    border-radius: 30px 30px 0 0;
+    padding: 40px 25px 0 25px;
+  }
+  .couple-name {
+    font-size: 3.5em;
+  }
+  .story-text p {
+    font-size: 1rem;
+  }
+  .wishes-title {
+    font-size: 2.8em;
+  }
+  .wishes-overlay-container {
+    height: 50vh;
+  }
+  .overlay-text {
+    padding: 0 20px;
+  }
+  .overlay-text p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .btn-confirm {
+    font-size: 1.2rem;
+    padding: 10px 40px;
+  }
+  .couple-info-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .groom-info,
+  .bride-info {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 2.5em;
+  }
+  .couple-names-header {
+    flex: 0 0 100%;
+    margin-top: 30px;
+  }
+  .center-names {
+    font-size: 2em;
+  }
+  .ampersand {
+    font-size: 2.5em;
+  }
+  .wedding-couple-info-section {
+    height: auto; /* Pada HP biarkan memanjang ke bawah */
+    padding: 80px 20px;
+  }
+  .couple-info-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .photo-frame {
+    height: 450px;
+    width: 300px;
+  }
+  .wedding-event-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+  .timer-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .timer-box {
+    width: 120px;
+    height: 120px;
+  }
+  .timer-box .number {
+    font-size: 1.8rem;
+  }
+  .timer-box .label {
+    font-size: 1.1rem;
+  }
+
+  .event-info-card {
+    flex-direction: column;
+    border-radius: 30px;
+  }
+  .event-image-side {
+    flex: 0 0 100%;
+    height: 250px;
+  }
+  .event-image-side img {
+    border-radius: 30px 30px 0 0;
+  }
+  .event-details-side {
+    padding: 30px;
+  }
+  .event-details-side h3 {
+    font-size: 1.3rem;
+  }
+  .info-row {
+    font-size: 1rem;
+  }
+  .wedding-gallery-section {
+    padding: 60px 20px;
+  }
+  .gallery-title {
+    font-size: 3em;
+    margin-bottom: 30px;
+  }
+  .gallery-grid {
+    /* Mengubah menjadi 2 kolom di layar kecil agar foto tidak terlalu kecil */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .gallery-item {
+    border-radius: 15px;
+  }
+  .location-title {
+    font-size: 3em;
+  }
+  .map-frame {
+    border-radius: 20px;
+  }
+  .map-frame iframe {
+    height: 300px;
+    border-radius: 15px;
+  }
+  .btn-maps {
+    font-size: 1.2rem;
+    padding: 10px 40px;
+  }
+}
+
+/* FLOATING NAVBAR */
+.floating-navbar {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(139, 128, 112, 0.95); /* #8b8070 with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  width: auto;
+  min-width: 320px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.nav-item span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.nav-item:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Responsif Navbar HP */
+@media (max-width: 768px) {
+  .floating-navbar {
+    bottom: 15px;
+    padding: 8px 15px;
+    gap: 5px;
+    width: 90%;
+    min-width: unset;
+  }
+  
+  .nav-item span {
+    font-size: 0.6rem;
+  }
+  
+  .nav-item svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+

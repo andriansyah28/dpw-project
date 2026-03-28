@@ -1,0 +1,198 @@
+:root {
+    --brand-color: #938c7f; /* The specific taupe color from mockup */
+    --font-inter: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-inter);
+    background-color: var(--brand-color);
+    overflow: hidden;
+}
+
+.login-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-left-form {
+    position: relative;
+    width: 65%; /* Adjusted for the slant */
+    background-color: var(--brand-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    padding-right: 180px; /* Offset for the slant area */
+    z-index: 10;
+    /* Slant matching 1-LOGIN.jpg exactly */
+    clip-path: polygon(0 0, 95% 0, 70% 100%, 0 100%);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 420px;
+    color: white;
+}
+
+.login-title {
+    font-weight: 800;
+    font-size: 6.5rem; /* Massive exactly as in mockup */
+    letter-spacing: -3px;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.login-subtitle {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    margin-bottom: 60px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.actual-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-set {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-set label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.input-set input {
+    width: 100%;
+    padding: 18px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+.input-set input:focus {
+    outline: none; /* Remove black border */
+}
+
+.input-set input::placeholder {
+    transition: opacity 0.2s ease;
+}
+
+.input-set input:focus::placeholder {
+    opacity: 0; /* Hide placeholder on focus */
+}
+
+
+.input-set input::placeholder {
+    color: #aaa;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.lock-svg {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    opacity: 0.6;
+    cursor: pointer; /* Ensure gembok looks clickable */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.lock-svg.is-active {
+    color: var(--brand-color);
+    opacity: 1;
+}
+
+
+
+.login-submit-btn {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    color: #938c7f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.login-submit-btn:hover {
+    background-color: #f8f8f8;
+    transform: translateY(-1px);
+}
+
+.login-footer {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.login-footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Background Section */
+.login-right-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* Slight overlap behind the slant */
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 1;
+}
+
+.overlay-photo {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    overflow: hidden; /* Added to ensure no overflow from img */
+}
+
+.overlay-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Adjust this to move the "focus" of the photo */
+}
+
+
+/* Force Desktop Only as requested */
+@media (max-width: 768px) {
+    /* Still maintain split for "Desktop First" focus */
+    .login-wrapper {
+        flex-direction: row; 
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Andri & Alya</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:wght@400;600;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            
+            <div class="frame-edge top-edge">
+                <div class="line"></div>
+                <h2 class="wedding-of">THE WEDDING OF</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="content">
+                <h1 class="names">Andri & Alya</h1>
+                
+                <div class="monogram-circle">
+                    <div class="monogram-initials">
+                        <span class="initial a-top">A</span>
+                        <div class="slash-line"></div> 
+                        <span class="initial a-bot">A</span>
+                    </div>
+                    <div class="date">09/09/2026</div>
+                </div>
+
+                <div class="guest-section">
+                    <p>Kepada Yth,</p>
+                    <p>Bapak/Ibu/Saudara/i</p>
+                    <h3 class="guest-name">Nama Tamu</h3>
+                </div>
+            </div>
+
+            <div class="frame-edge bottom-edge">
+                <div class="line"></div>
+                <a href="invitation.html" class="btn-open" style="text-decoration: none;">Open Invitation</a>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    <script>
+        // Ambil nama dari localStorage
+        const guestName = localStorage.getItem('guestName');
+        const guestElement = document.querySelector('.guest-name');
+        
+        if (guestName) {
+            // Kapitalisasi huruf pertama
+            guestElement.textContent = guestName.charAt(0).toUpperCase() + guestName.slice(1);
+        } else {
+            guestElement.textContent = "Tamu Undangan";
+        }
+    </script>
+</body>
+</html>
