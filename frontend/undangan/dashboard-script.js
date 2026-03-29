@@ -50,17 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Fungsi untuk memuat data RSVP dari localStorage
-    function loadRSVPData() {
+    function loadRSVPData(searchQuery = '') {
         const tableBody = document.getElementById('rsvpTableBody');
         if (!tableBody) return;
 
-        const rsvps = JSON.parse(localStorage.getItem('wedding_rsvp')) || [];
+        let rsvps = JSON.parse(localStorage.getItem('wedding_rsvp')) || [];
         
+        // Filter data berdasarkan pencarian jika ada
+        if (searchQuery.trim() !== '') {
+            const query = searchQuery.toLowerCase();
+            rsvps = rsvps.filter(rsvp => rsvp.name.toLowerCase().includes(query));
+        }
+
         // Bersihkan tabel
         tableBody.innerHTML = '';
 
         if (rsvps.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 20px;">Belum ada data RSVP</td></tr>';
+            tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 20px;">Belum ada data RSVP ditemukan</td></tr>';
             return;
         }
 
@@ -96,16 +102,89 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fungsi global untuk menghapus RSVP (perlu diekspos ke window agar bisa dipanggil dari HTML string)
+    // Fungsi global untuk menghapus RSVP
     window.deleteRSVP = function(id) {
         if (confirm('Hapus data RSVP ini?')) {
             let rsvps = JSON.parse(localStorage.getItem('wedding_rsvp')) || [];
             rsvps = rsvps.filter(item => item.id !== id);
             localStorage.setItem('wedding_rsvp', JSON.stringify(rsvps));
-            loadRSVPData(); // Refresh tabel
+            // Trigger refresh dengan query pencarian yang mungkin sedang aktif
+            const searchInput = document.querySelector('.search-bar input');
+            loadRSVPData(searchInput ? searchInput.value : '');
         }
     };
 
-    // Muat data saat pertama kali buka jika tab RSVP aktif
+    // Fitur Pencarian Real-time Otomatis di Dashboard
+    const searchInput = document.querySelector('.search-bar input');
+    const activityTitle = document.querySelector('.activity-title');
+    const activityList = document.querySelector('.activity-list');
+    let originalActivityHTML = '';
+
+    if (activityList) {
+        originalActivityHTML = activityList.innerHTML;
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            // 1. Terapkan filter ke tabel RSVP jika sedang dibuka
+            loadRSVPData(query);
+
+            // 2. Terapkan Pencarian ke UI widget Dashboard (Aktivitas)
+            if (query !== '' && activityTitle && activityList) {
+                activityTitle.textContent = 'Hasil Pencarian Tamu';
+                
+                const rsvps = JSON.parse(localStorage.getItem('wedding_rsvp')) || [];
+                const filtered = rsvps.filter(rsvp => rsvp.name.toLowerCase().includes(query));
+
+                if (filtered.length > 0) {
+                    activityList.innerHTML = '';
+                    filtered.forEach(rsvp => {
+                        let statusColor = rsvp.presence === 'hadir' ? '#3ecc71' : (rsvp.presence === 'tidak_hadir' ? '#e74c3c' : '#f39c12');
+                        let statusText = rsvp.presence === 'hadir' ? 'Hadir' : (rsvp.presence === 'tidak_hadir' ? 'Tidak Hadir' : 'Ragu');
+                        
+                        activityList.innerHTML += `
+                            <div class="activity-item" style="cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="document.querySelector('[data-target=\\'rsvp\\']').click()">
+                                <div class="activity-dot" style="background-color: ${statusColor};"></div>
+                                <div class="activity-details">
+                                    <h4>${rsvp.name} <span style="font-size: 0.75rem; color: #888; font-weight: normal; margin-left: 5px;">(${statusText})</span></h4>
+                                    <p>"${rsvp.wish}"</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    activityList.innerHTML = `
+                        <div class="activity-item">
+                            <div class="activity-dot" style="background-color: #ccc;"></div>
+                            <div class="activity-details">
+                                <h4>Data tidak ditemukan</h4>
+                                <p>Tamu atas nama "${e.target.value}" belum memberikan konfirmasi kehadiran.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (activityTitle && activityList) {
+                // Kembalikan ke keadaan semula jika pencarian kosong
+                activityTitle.textContent = 'Aktivitas Terkini';
+                activityList.innerHTML = originalActivityHTML;
+            }
+        });
+    }
+
+    // Navigasi Pencarian Mobile
+    const mobileSearchTrigger = document.getElementById('mobileSearchTrigger');
+    if (mobileSearchTrigger && searchInput) {
+        mobileSearchTrigger.addEventListener('click', (e) => {
+            // Berikan sedikit delay agar transisi tab selesai dulu
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                searchInput.focus();
+            }, 50);
+        });
+    }
+
+    // Muat data saat pertama kali buka
     loadRSVPData();
 });

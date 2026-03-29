@@ -735,4 +735,39 @@ body {
         padding: 8px 12px;
         font-size: 0.8rem;
     }
+
+    /* Settings Section Mobile Adjustments */
+    .settings-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .settings-card {
+        padding: 1.5rem;
+        border-radius: 18px;
+    }
+
+    .settings-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .form-group input {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .form-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1.5rem !important; /* Override hardcoded inline style appropriately */
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        padding: 14px !important; /* Override hardcoded padding */
+        font-size: 1rem;
+    }
 }
