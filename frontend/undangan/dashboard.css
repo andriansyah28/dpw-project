@@ -325,6 +325,43 @@ body {
     background-color: var(--bg-main);
     border-radius: 15px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+}
+
+.activity-dot svg {
+    width: 28px;
+    height: 28px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-action {
+    width: 45px;
+    height: 45px;
+    background-color: var(--bg-main);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-black);
+    flex-shrink: 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.activity-action:hover {
+    background-color: var(--accent-gold);
+    color: var(--white);
+}
+
+.activity-action svg {
+    width: 20px;
+    height: 20px;
 }
 
 .activity-details h4 {
