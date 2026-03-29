@@ -693,13 +693,46 @@ body {
 
     /* Management tables adjustment */
     .table-container {
-        padding: 10px;
+        padding: 12px;
         border-radius: 15px;
+        margin-top: 10px;
+    }
+
+    .custom-table th {
+        padding: 10px 12px;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    .custom-table td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .badge {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+
+    .btn-icon svg {
+        width: 16px;
+        height: 16px;
     }
     
     .view-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .view-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .view-header .btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
     }
 }
