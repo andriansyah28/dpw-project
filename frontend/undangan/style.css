@@ -189,10 +189,74 @@ body {
 }
 
 
-/* Force Desktop Only as requested */
+/* Responsive Mobile - Matching 11-LOGIN MOBILE.jpg */
 @media (max-width: 768px) {
-    /* Still maintain split for "Desktop First" focus */
+    body {
+        overflow-y: auto; /* Allow scrolling on small screens */
+    }
+
     .login-wrapper {
-        flex-direction: row; 
+        flex-direction: column-reverse; /* Put image (second in HTML) at the top */
+        height: auto;
+        min-height: 100vh;
+        background-color: var(--brand-color);
+    }
+
+    .login-right-image {
+        position: relative;
+        width: 100%;
+        height: 48vh; /* Sedikit lebih tinggi sesuai mockup */
+        z-index: 10;
+        /* V-shape clipping yang lebih tajam */
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    }
+
+    .login-left-form {
+        width: 100%;
+        padding: 40px 30px 80px 30px;
+        clip-path: none; /* Remove desktop slant */
+        z-index: 5;
+        margin-top: -20px; /* Slight overlap into the V-shape area if desired */
+    }
+
+    .form-container {
+        text-align: center; /* Center the "WELCOME" and subtitle */
+        max-width: 100%;
+    }
+
+    .login-title {
+        font-size: 4rem; /* Scaled down for mobile but still large */
+        margin-bottom: 5px;
+    }
+
+    .login-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .actual-form {
+        text-align: left; /* Keep labels left-aligned as in mockup */
+        gap: 20px;
+    }
+
+    .input-set label {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .input-set input {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+
+    .login-submit-btn {
+        margin-top: 15px;
+        font-size: 1.3rem;
+        padding: 15px;
+    }
+
+    .login-footer {
+        font-size: 1rem;
+        margin-top: 30px;
     }
 }

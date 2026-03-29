@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="invitation.css" />
   </head>
   <body>
+    <!-- Tombol Kembali ke Login -->
+    <a href="login.html" class="back-to-login">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Kembali</span>
+    </a>
+
     <!-- BAGIAN 1: Pengantar -->
     <section id="pengantar" class="wedding-welcome-section">
       <div class="welcome-box">
@@ -439,6 +448,50 @@
         <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
     </button>
+
+    <!-- Wishes Modal (Form Pengiriman Ucapan) -->
+    <div id="wishesModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close" id="closeModal">&times;</button>
+        <h2 class="modal-title">Kirim Ucapan & Doa</h2>
+        <form id="wishesForm">
+          <div class="form-group">
+            <label for="guestName">Nama Anda</label>
+            <input
+              type="text"
+              id="guestName"
+              placeholder="Masukkan nama lengkap"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="presenceStatus">Konfirmasi Kehadiran</label>
+            <select id="presenceStatus" required>
+              <option value="" disabled selected>Pilih Kehadiran</option>
+              <option value="hadir">Hadir</option>
+              <option value="tidak_hadir">Tidak Hadir</option>
+              <option value="ragu">Masih Ragu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="guestWish">Ucapan & Doa</label>
+            <textarea
+              id="guestWish"
+              rows="4"
+              placeholder="Berikan ucapan terbaik Anda..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Sekarang</button>
+        </form>
+        <div id="successMessage" class="success-message" style="display: none">
+          <div class="success-icon">✓</div>
+          <h3>Terima Kasih!</h3>
+          <p>Ucapan dan doa Anda telah terkirim.</p>
+          <button class="btn-close-success" id="btnOk">OK</button>
+        </div>
+      </div>
+    </div>
 
     <script src="invitation.js"></script>
   </body>

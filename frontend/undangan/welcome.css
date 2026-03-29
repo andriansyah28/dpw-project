@@ -214,3 +214,54 @@ body, html {
     margin-top: 12px;
     letter-spacing: 1px;
 }
+/* Responsif untuk Mobile - Matching 13-WELCOME MOBILE.jpg */
+@media (max-width: 768px) {
+    .wedding-of {
+        font-size: 2.2rem;
+        margin: 0 10px;
+    }
+
+    .btn-open {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        margin: 0 10px;
+        white-space: nowrap;
+    }
+
+    .names {
+        font-size: 2.5rem;
+    }
+
+    .monogram-circle {
+        width: 260px;
+        margin: 10px auto;
+    }
+
+    .initial {
+        font-size: 6rem;
+    }
+
+    .a-top {
+        top: 8%;
+        left: 28%;
+    }
+
+    .a-bot {
+        bottom: 22%;
+        right: 32%;
+    }
+
+    .date {
+        bottom: 12%;
+        font-size: 1.1rem;
+    }
+
+    .guest-section p {
+        font-size: 0.95rem;
+    }
+
+    .guest-name {
+        font-size: 1.6rem;
+        margin-top: 8px;
+    }
+}

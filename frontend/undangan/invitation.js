@@ -58,8 +58,79 @@ function setupNavbarToggle() {
     }
 }
 
+// Fungsi untuk mengelola Modal Ucapan & RSVP
+function setupWishesModal() {
+    const modal = document.getElementById('wishesModal');
+    const openBtn = document.querySelector('.btn-confirm');
+    const closeBtn = document.getElementById('closeModal');
+    const wishesForm = document.getElementById('wishesForm');
+    const successMessage = document.getElementById('successMessage');
+    const btnOk = document.getElementById('btnOk');
+
+    if (modal && openBtn && closeBtn) {
+        // Buka Modal
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            // Reset form dan pesan sukses saat dibuka kembali
+            if (wishesForm) wishesForm.style.display = 'block';
+            if (successMessage) successMessage.style.display = 'none';
+        });
+
+        // Tutup Modal (Tombol X)
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Tutup Modal (Klik di luar konten)
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Tangani Submit Form
+        if (wishesForm) {
+            wishesForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Ambil data dari input
+                const nameInput = document.getElementById('guestName');
+                const presenceInput = document.getElementById('presenceStatus');
+                const wishInput = document.getElementById('guestWish');
+
+                const newRSVP = {
+                    id: Date.now(),
+                    name: nameInput ? nameInput.value : 'Anonim',
+                    presence: presenceInput ? presenceInput.value : 'hadir',
+                    wish: wishInput ? wishInput.value : '',
+                    date: new Date().toLocaleString('id-ID')
+                };
+
+                // Simpan ke localStorage
+                let existingRSVPs = JSON.parse(localStorage.getItem('wedding_rsvp')) || [];
+                existingRSVPs.push(newRSVP);
+                localStorage.setItem('wedding_rsvp', JSON.stringify(existingRSVPs));
+
+                console.log("RSVP Tersimpan:", newRSVP);
+
+                // Tampilkan pesan sukses
+                wishesForm.style.display = 'none';
+                if (successMessage) successMessage.style.display = 'block';
+            });
+        }
+
+        // Tutup setelah OK
+        if (btnOk) {
+            btnOk.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+    }
+}
+
 // Jalankan fungsi saat halaman selesai dimuat
 document.addEventListener("DOMContentLoaded", () => {
     startCountdown();
     setupNavbarToggle();
-});
+    setupWishesModal();
+});
