@@ -38,5 +38,28 @@ function startCountdown() {
     }, 1000);
 }
 
+
+// Fungsi untuk toggle navbar (sembunyi/tampil)
+function setupNavbarToggle() {
+    const navbar = document.getElementById('mainNavbar');
+    const closeBtn = document.getElementById('navbarToggle');
+    const openBtn = document.getElementById('menuLauncher');
+
+    if (navbar && closeBtn && openBtn) {
+        // Klik tombol X (Close) -> Sembunyikan navbar
+        closeBtn.addEventListener('click', () => {
+            navbar.classList.add('minimized');
+        });
+
+        // Klik tombol Hamburger (Open) -> Tampilkan navbar
+        openBtn.addEventListener('click', () => {
+            navbar.classList.remove('minimized');
+        });
+    }
+}
+
 // Jalankan fungsi saat halaman selesai dimuat
-document.addEventListener("DOMContentLoaded", startCountdown);
+document.addEventListener("DOMContentLoaded", () => {
+    startCountdown();
+    setupNavbarToggle();
+});
