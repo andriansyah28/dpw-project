@@ -597,15 +597,16 @@ body {
     }
 
     .mobile-logo {
-        display: block;
-        background-color: #fce7cf;
-        padding: 6px 12px;
-        font-weight: 800;
-        letter-spacing: 1px;
-        font-size: 0.8rem;
-        color: #333;
-        border-radius: 6px;
-        margin-right: 10px;
+        display: inline-block;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        color: var(--primary-black);
+        border: 1px solid var(--accent-gold);
+        padding: 5px 12px;
+        border-radius: 4px;
+        background-color: transparent;
     }
 
     .page-title {
