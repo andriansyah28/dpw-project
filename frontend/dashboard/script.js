@@ -31,7 +31,7 @@ loginForm.addEventListener('submit', (e) => {
         window.location.href = 'dashboard.html';
     } else if (username === 'user' && password === 'user123') {
         localStorage.setItem('guestName', username); // Simpan nama tamu
-        window.location.href = 'welcome.html';
+        window.location.href = '../undangan/welcome.html';
     } else {
         alert('Login Gagal! Username atau Password salah.');
     }
